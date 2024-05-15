@@ -1,26 +1,36 @@
-int ft_atoi(const char *str)
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lli2 <marvin@42.fr>                        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/05/15 13:10:20 by lli2              #+#    #+#             */
+/*   Updated: 2024/05/15 13:10:20 by lli2             ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+int	ft_atoi(const char *str)
 {
-    int sign = 1;
-    int result = 0;
-    int i = 0;
+	int	sign;
+	int	result;
+	int	i;
 
-    // 跳过空白字符
-    while (str[i] == ' ' || (str[i] >= '\t' && str[i] <= '\r'))
-        i++;
-
-    // 处理正负号
-    if (str[i] == '-' || str[i] == '+') {
-        if (str[i] == '-')
-            sign = -1;
-        i++;
-    }
-
-    // 将数字字符转换为整数
-    while (str[i] >= '0' && str[i] <= '9') {
-        result = result * 10 + (str[i] - '0');
-        i++;
-    }
-
-    // 返回结果
-    return sign * result;
+	sign = 1;
+	result = 0;
+	i = 0;
+	while (str[i] == ' ' || (str[i] >= '\t' && str[i] <= '\r'))
+		i++;
+	if (str[i] == '-' || str[i] == '+')
+	{
+		if (str[i] == '-')
+			sign = -1;
+		i++;
+	}
+	while (str[i] >= '0' && str[i] <= '9')
+	{
+		result = result * 10 + (str[i] - '0');
+		i++;
+	}
+	return (sign * result);
 }

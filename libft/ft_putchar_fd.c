@@ -1,23 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lli2 <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/15 12:26:46 by lli2              #+#    #+#             */
-/*   Updated: 2024/05/15 12:26:46 by lli2             ###   ########.fr       */
+/*   Created: 2024/05/15 18:12:10 by lli2              #+#    #+#             */
+/*   Updated: 2024/05/15 18:12:10 by lli2             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strncmp(const char *s1, const char *s2, unsigned int n)
+#include <unistd.h>
+
+void	ft_putchar_fd(char c, int fd)
 {
-	while (n--)
-	{
-		if (*s1 != *s2 || *s1 == '\0')
-			return ((unsigned char)*s1 - (unsigned char)*s2);
-		s1++;
-		s2++;
-	}
-	return (0);
+	write(fd, &c, 1);
 }

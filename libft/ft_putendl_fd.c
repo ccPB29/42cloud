@@ -1,23 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lli2 <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/15 12:26:46 by lli2              #+#    #+#             */
-/*   Updated: 2024/05/15 12:26:46 by lli2             ###   ########.fr       */
+/*   Created: 2024/05/15 18:19:55 by lli2              #+#    #+#             */
+/*   Updated: 2024/05/15 18:19:55 by lli2             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strncmp(const char *s1, const char *s2, unsigned int n)
+#include <unistd.h>
+
+void	ft_putendl_fd(char *s, int fd)
 {
-	while (n--)
+	while (*s)
 	{
-		if (*s1 != *s2 || *s1 == '\0')
-			return ((unsigned char)*s1 - (unsigned char)*s2);
-		s1++;
-		s2++;
+		write(fd, s, 1);
+		s++;
 	}
-	return (0);
+	write(fd, "\n", 1);
 }

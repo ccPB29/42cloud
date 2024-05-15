@@ -1,17 +1,31 @@
-void *ft_memcpy(void *dest, const void *src, size_t n)
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lli2 <marvin@42.fr>                        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/05/15 04:50:54 by lli2              #+#    #+#             */
+/*   Updated: 2024/05/15 04:50:54 by lli2             ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+void	*ft_memcpy(void *dest, const void *src, unsigned int n)
 {
-    char *d = dest;
-    const char *s = src;
+	unsigned char		*d;
+	const unsigned char	*s;
 
-    // 检查源地址和目标地址是否相同，如果相同，直接返回目标地址
-    if (dest == src)
-        return dest;
-
-    // 从源地址复制到目标地址，以确保在重叠的情况下也能正确工作
-    while (n--)
-    {
-        *d++ = *s++;
-    }
-
-    return dest;
+	if (n == 0)
+		return (dest);
+	if (src == ((void *)0) && dest == ((void *)0))
+		return ((void *)0);
+	d = (unsigned char *)dest;
+	s = (const unsigned char *)src;
+	while (n--)
+	{
+		*d = *s;
+		d++;
+		s++;
+	}
+	return (dest);
 }

@@ -1,16 +1,27 @@
-char *ft_strrchr(const char *s, int c)
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lli2 <marvin@42.fr>                        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/05/15 12:17:41 by lli2              #+#    #+#             */
+/*   Updated: 2024/05/15 12:17:41 by lli2             ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+char	*ft_strrchr(const char *s, int c)
 {
-    const char *last = NULL;
+	const char	*last;
 
-    while (*s != '\0')
-    {
-        if (*s == (char)c)
-            last = s;
-        s++;
-    }
-
-    if ((char)c == '\0')
-        return (char *)s;
-
-    return (char *)last;
+	last = (void *)0;
+	while (*s != '\0')
+	{
+		if (*s == (char)c)
+			last = s;
+		s++;
+	}
+	if ((char)c == '\0')
+		return ((char *)s);
+	return ((char *)last);
 }
