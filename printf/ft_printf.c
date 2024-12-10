@@ -10,13 +10,50 @@
 /*                                                                            */
 /* ************************************************************************** */
 #include <stdarg.h>
-#include <stdlib.h>
-#include <unistd.h>
-#include "libft.h"
+#include "ft_printf.h"
 
-int ft_printf(const char *, ...)
+static int	handle_conversion(const char **format, va_list args)
 {
-	char	**	str;
+	char	c;
 
-	str = 
+	(*format)++;
+	if (**format == 'c')
+	{
+		c = (char)va_arg(args, int);
+		ft_putchar_fd(c, 1);
+	}
+	else if (**format == 's')
+		ft_putstr_fd(va_arg(args, char *), 1);
+	else if (**format == 'p')
+		ft_pointer(va_arg(args, void *));
+	else if ((**format == 'i') || (**format == 'd'))
+		ft_putnbr_fd(va_arg(args, int), 1);
+	else if (**format == 'u')
+		ft_putusnbr_fd(va_arg(args, int), 1);
+	else if (**format == 'x')
+		ft_puthex(va_arg(args, unsigned long), 0);
+	else if (**format == 'X')
+		ft_puthex(va_arg(args, unsigned long), 1);
+	else if (**format == '%')
+		write(1, "%", 1);
+	(*format)++;
+	return (0);
+}
+
+int	ft_printf(const char *format, ...)
+{
+	va_list	args;
+	int		count;
+
+	count = 0;
+	va_start(args, format);
+	while (*format)
+	{
+		if (*format == '%')
+			count += handle_conversion(&format, args);
+		else
+			count += write(1, format++, 1);
+	}
+	va_end(args);
+	return (count);
 }

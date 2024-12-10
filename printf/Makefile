@@ -1,10 +1,10 @@
 CC = cc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror 
 # LDLIBS = .
-NAME = libft.a
-SRCS = $(wildcard ../libft1/*.c)
+NAME = libftprintf.a
+SRCS = $(wildcard *.c)
 OBJS = $(SRCS:.c=.o)
-includes = ../libft1
+includes = .
 
 all: $(NAME)
 
@@ -21,4 +21,3 @@ fclean: clean
 	rm -f $(NAME)
 
 re: fclean all
-
