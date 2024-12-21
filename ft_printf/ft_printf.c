@@ -6,7 +6,7 @@
 /*   By: lli2 <lli2@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/25 14:43:26 by lli2              #+#    #+#             */
-/*   Updated: 2024/12/22 05:32:25 by lli2             ###   ########.fr       */
+/*   Updated: 2024/12/22 05:35:58 by lli2             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int	handle(const char format, va_list args)
 	else if (format == 'X')
 		return (ft_puthex(va_arg(args, unsigned int), 1));
 	else if (format == '%')
-		return ((1, "%", 1));
+		return (write(1, "%", 1));
 	return (0);
 }
 
