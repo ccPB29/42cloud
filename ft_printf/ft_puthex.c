@@ -6,13 +6,13 @@
 /*   By: lli2 <lli2@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 11:17:46 by lli2              #+#    #+#             */
-/*   Updated: 2024/12/22 05:23:54 by lli2             ###   ########.fr       */
+/*   Updated: 2024/12/22 06:10:47 by lli2             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-unsigned int	ft_puthex(unsigned int n, int uppercase)
+int	ft_puthex(unsigned long n, int uppercase)
 {
 	unsigned long		count;
 	char				*base;
