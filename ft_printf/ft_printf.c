@@ -6,7 +6,7 @@
 /*   By: lli2 <lli2@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/25 14:43:26 by lli2              #+#    #+#             */
-/*   Updated: 2024/12/22 04:41:05 by lli2             ###   ########.fr       */
+/*   Updated: 2024/12/22 05:32:25 by lli2             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,11 +31,11 @@ int	handle(const char format, va_list args)
 	else if (format == 'u')
 		return (ft_putusnbr(va_arg(args, unsigned int)));
 	else if (format == 'x')
-		return (ft_puthex(va_arg(args, unsigned long), 0));
+		return (ft_puthex(va_arg(args, unsigned int), 0));
 	else if (format == 'X')
-		return (ft_puthex(va_arg(args, unsigned long), 1));
+		return (ft_puthex(va_arg(args, unsigned int), 1));
 	else if (format == '%')
-		write(1, "%", 1);
+		return ((1, "%", 1));
 	return (0);
 }
 
