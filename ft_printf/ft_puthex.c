@@ -6,16 +6,16 @@
 /*   By: lli2 <lli2@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 11:17:46 by lli2              #+#    #+#             */
-/*   Updated: 2024/12/10 11:30:30 by lli2             ###   ########.fr       */
+/*   Updated: 2024/12/22 04:42:58 by lli2             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_puthex(unsigned int n, int uppercase)
+unsigned long	ft_puthex(unsigned long n, int uppercase)
 {
-	int		count;
-	char	*base;
+	unsigned long		count;
+	char				*base;
 
 	count = 0;
 	if (uppercase == 1)
@@ -24,7 +24,6 @@ int	ft_puthex(unsigned int n, int uppercase)
 		base = "0123456789abcdef";
 	if (n >= 16)
 		count += ft_puthex(n / 16, uppercase);
-	count += ft_putchar_fd(base[n % 16], 1);
+	count += ft_putchar(base[n % 16]);
 	return (count);
 }
-

@@ -6,7 +6,7 @@
 /*   By: lli2 <lli2@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 11:17:35 by lli2              #+#    #+#             */
-/*   Updated: 2024/12/10 11:30:30 by lli2             ###   ########.fr       */
+/*   Updated: 2024/12/22 04:44:20 by lli2             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,12 @@
 # include <stdlib.h>
 # include <unistd.h>
 
-int	ft_printf(const char *format, ...);
-int	ft_pointer(void *ptr);
-int	ft_putchar_fd(char c, int fd);
-int	ft_puthex(unsigned int n, int uppercase);
-int	ft_putnbr_fd(int n, int fd);
-int	ft_putstr_fd(char *s, int fd);
-int	ft_putusnbr_fd(int m, int fd);
+int				ft_printf(const char *format, ...);
+int				ft_pointer(void *ptr);
+int				ft_putchar(char c);
+unsigned long	ft_puthex(unsigned long n, int uppercase);
+int				ft_putnbr(int n);
+int				ft_putstr(char *s);
+int				ft_putusnbr(unsigned int m);
 
 #endif

@@ -1,32 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putusnbr_fd.c                                   :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lli2 <lli2@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/15 18:23:06 by lli2              #+#    #+#             */
-/*   Updated: 2024/12/10 11:30:30 by lli2             ###   ########.fr       */
+/*   Created: 2024/05/15 18:17:38 by lli2              #+#    #+#             */
+/*   Updated: 2024/12/22 04:40:59 by lli2             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_putusnbr_fd(int m, int fd)
+int	ft_putstr(char *s)
 {
-	char			c;
-	unsigned int	n;
+	int	i;
 
-	n = (unsigned int)m;
-	if (n >= 10)
+	if (!s)
 	{
-		ft_putusnbr_fd(n / 10, fd);
-		ft_putusnbr_fd(n % 10, fd);
+		s = "(null)";
 	}
-	else
+	i = 0;
+	while (s[i])
 	{
-		c = n + '0';
-		write(fd, &c, 1);
+		write(1, &s[i], 1);
+		i++;
 	}
-	return (0);
+	return (i);
 }
