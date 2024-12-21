@@ -27,3 +27,4 @@ int	ft_puthex(unsigned int n, int uppercase)
 	count += ft_putchar_fd(base[n % 16], 1);
 	return (count);
 }
+

@@ -6,14 +6,14 @@
 /*   By: lli2 <lli2@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/25 14:43:26 by lli2              #+#    #+#             */
-/*   Updated: 2024/12/10 11:30:30 by lli2             ###   ########.fr       */
+/*   Updated: 2024/12/22 00:43:05 by lli2             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdarg.h>
 #include "ft_printf.h"
 
-static int	handle_conversion(const char **format, va_list args)
+int	handle(const char **format, va_list args)
 {
 	char	c;
 
@@ -44,17 +44,15 @@ static int	handle_conversion(const char **format, va_list args)
 int	ft_printf(const char *format, ...)
 {
 	va_list	args;
-	int		count;
 
-	count = 0;
 	va_start(args, format);
 	while (*format)
 	{
 		if (*format == '%')
-			count += handle_conversion(&format, args);
+			handle(&format, args);
 		else
-			count += write(1, format++, 1);
+			write(1, format++, 1);
 	}
 	va_end(args);
-	return (count);
+	return (0);
 }
