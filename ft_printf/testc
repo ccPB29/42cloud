@@ -5,8 +5,8 @@
 int main(void) {
     int ft_len, std_len;
 
-    ft_len = ft_printf("%p", (void *)-14523);
-    std_len = printf("%p", (void *)-14523);
+    ft_len = ft_printf(" %p %p", 0, 0);
+    std_len = printf(" %p %p", 0, 0);
     printf("ft_len = %d, std_len = %d\n\n", ft_len, std_len);
 
 // " %p %p", 0, 0
